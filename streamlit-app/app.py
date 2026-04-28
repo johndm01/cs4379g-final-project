@@ -7,7 +7,6 @@ import plotly.express as px
 # Page config
 st.set_page_config(
     page_title="Exoplanet Habitability Explorer",
-    page_icon="🪐",
     layout="wide",
 )
 
