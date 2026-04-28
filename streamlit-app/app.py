@@ -124,3 +124,13 @@ if selected_methods:
 if df.empty:
     st.warning("No planets match your current filters — try loosening the sidebar settings.")
     st.stop()
+# Header
+st.title("Exoplanet Habitability Explorer")
+st.markdown(
+    "An **exoplanet** is a planet that orbits a star other than our Sun. "
+    "Thousands have been discovered — but could any of them support life? "
+    "This dashboard explores data from the [NASA Exoplanet Archive](https://exoplanetarchive.ipac.caltech.edu/) "
+    "to find out which planets fall inside the **Goldilocks Zone**: "
+    "the orbital range where liquid water could theoretically exist on a planet's surface."
+)
+st.divider()
