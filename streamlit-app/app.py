@@ -1,3 +1,5 @@
+import io
+import requests
 import pandas as pd
 import streamlit as st
 import plotly.express as px
@@ -8,6 +10,17 @@ st.set_page_config(
     page_icon="🪐",
     layout="wide",
 )
+
+# Constants
+STAR_ORDER = ["F", "G", "K", "M"]
+STAR_CLASS_LABELS = {
+    "F": "F — Hot & bright",
+    "G": "G — Sun-like (our Sun)",
+    "K": "K — Orange dwarf",
+    "M": "M — Red dwarf (coolest)",
+}
+HAB_LABEL_MAP = {True: "Possibly Habitable", False: "Not Habitable"}
+
 # Data loading
 @st.cache_data(show_spinner="Fetching data from NASA Exoplanet Archive…")
 
