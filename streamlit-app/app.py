@@ -506,6 +506,17 @@ button[data-testid="stBaseButton-headerNoPadding"] {{
     box-shadow: none !important;
 }}
 
+/* ── Tooltips ── */
+[data-baseweb="tooltip"] > div,
+[role="tooltip"] {{
+    background-color: {CARD_BG} !important;
+    color: {TEXT} !important;
+    border: 1px solid {BORDER} !important;
+    border-radius: 0px !important;
+    box-shadow: none !important;
+    font-family: 'Space Grotesk', sans-serif !important;
+}}
+
 /* ── Warning / error boxes ── */
 [data-testid="stAlert"] {{
     border: 2px solid {BORDER} !important;
@@ -715,11 +726,12 @@ with tab2:
         trendline_scope="overall",
         trendline_color_override="#ff6b6b",
         hover_name="pl_name",
-        hover_data={"disc_year": True, "pl_eqt": ":.0f", "hab_label": False},
+        hover_data={"disc_year": True, "pl_eqt": ":.0f", "hab_label": False, "discoverymethod": True},
         labels={
-            "disc_year": "Year of Discovery",
-            "pl_eqt":    "Equilibrium Temperature (K)",
-            "hab_label": "",
+            "disc_year":       "Year of Discovery",
+            "pl_eqt":          "Equilibrium Temperature (K)",
+            "hab_label":       "",
+            "discoverymethod": "Discovery Method",
         },
         title="Evolution of Discovery: Are Cooler Planets Found Over Time?",
     )
@@ -790,12 +802,13 @@ with tab4:
         category_orders={"host_star_class": STAR_ORDER},
         color_discrete_map=STAR_COLORS,
         hover_name="pl_name",
-        hover_data={"st_teff": ":.0f", "pl_rade": ":.2f", "pl_insol": ":.2f"},
+        hover_data={"st_teff": ":.0f", "pl_rade": ":.2f", "pl_insol": ":.2f", "discoverymethod": True},
         labels={
             "st_teff":         "Stellar Temp (K)",
             "pl_rade":         "Planet Radius (Earth Radii)",
             "pl_insol":        "Insolation Flux",
             "host_star_class": "Star Class",
+            "discoverymethod": "Discovery Method",
         },
         title="3D Explorer: Stellar Temperature × Planet Size × Stellar Energy",
         opacity=0.8,
