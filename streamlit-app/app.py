@@ -486,6 +486,26 @@ button[data-testid="stBaseButton-headerNoPadding"] {{
     display: none !important;
 }}
 
+/* ── Expander ── */
+[data-testid="stExpander"] {{
+    border: 2px solid {BORDER} !important;
+    border-radius: 0px !important;
+    background-color: {CARD_BG} !important;
+}}
+[data-testid="stExpander"] summary {{
+    background-color: {CARD_BG} !important;
+    color: {TEXT} !important;
+    outline: none !important;
+    box-shadow: none !important;
+}}
+[data-testid="stExpander"] summary:hover,
+[data-testid="stExpander"] summary:focus,
+[data-testid="stExpander"] summary:active {{
+    background-color: {CARD_BG} !important;
+    outline: none !important;
+    box-shadow: none !important;
+}}
+
 /* ── Warning / error boxes ── */
 [data-testid="stAlert"] {{
     border: 2px solid {BORDER} !important;
@@ -668,6 +688,16 @@ with tab1:
         name="Earth",
     )
     st.plotly_chart(styled(fig1), use_container_width=True)
+    with st.expander("About this chart"):
+        st.markdown(
+            "Each dot is an exoplanet. The **x-axis** shows how much stellar energy it receives "
+            "compared to Earth (Earth = 1), and the **y-axis** shows its size relative to Earth. "
+            "The green shaded box is the **Goldilocks Zone** — the range of stellar energy where "
+            "liquid water could theoretically exist on a planet's surface. "
+            "The vast majority of known exoplanets fall far to the right of this zone, meaning "
+            "they receive far too much energy and are too hot to be habitable. "
+            "The handful of green dots inside the box are the best candidates we've found so far."
+        )
 
 # ── Tab 2: Discovery Timeline ─────────────────────────────────────────────────
 with tab2:
@@ -699,6 +729,17 @@ with tab2:
         annotation_font=dict(color="#00d4ff", family="Space Grotesk"),
     )
     st.plotly_chart(styled(fig2), use_container_width=True)
+    with st.expander("About this chart"):
+        st.markdown(
+            "Each dot is an exoplanet plotted by the year it was discovered and its equilibrium "
+            "temperature — the theoretical surface temperature assuming no atmosphere. "
+            "The **red trend line** shows a slight downward slope over time, meaning astronomers "
+            "are gradually discovering cooler planets as detection technology improves. "
+            "Notice that the green (potentially habitable) dots cluster in more recent years — "
+            "a sign that our ability to find Earth-like candidates is getting better, "
+            "though the trend is still not steep enough to conclude that habitable planets "
+            "will become common findings anytime soon."
+        )
 
 # ── Tab 3: Temperature by Star Class ─────────────────────────────────────────
 with tab3:
@@ -722,6 +763,19 @@ with tab3:
         annotation_font=dict(color="#00d4ff", family="Space Grotesk"),
     )
     st.plotly_chart(styled(fig3), use_container_width=True)
+    with st.expander("About this chart"):
+        st.markdown(
+            "This box plot shows the spread of equilibrium temperatures for planets grouped by "
+            "the type of star they orbit, from hottest (F) to coolest (M). "
+            "The dashed blue line marks Earth's equilibrium temperature (~255 K). "
+            "You might expect planets around cooler M-dwarf stars to be cooler — but the boxes "
+            "show that most of them are still far above Earth's temperature. "
+            "This is because the **Transit detection method** (by far the most common technique) "
+            "is only good at finding planets that orbit very close to their star, "
+            "which makes them hot regardless of the star type. "
+            "In other words, the scarcity of habitable planets here likely reflects a "
+            "**detection bias**, not a true lack of cooler planets."
+        )
 
 # ── Tab 4: 3D Explorer ────────────────────────────────────────────────────────
 with tab4:
@@ -760,3 +814,16 @@ with tab4:
         margin=dict(l=0, r=0, t=60, b=0),
     )
     st.plotly_chart(fig4, use_container_width=True)
+    with st.expander("About this chart"):
+        st.markdown(
+            "This interactive 3D chart lets you explore three key properties simultaneously: "
+            "**stellar temperature** (how hot the host star is), "
+            "**planet radius** (how big the planet is relative to Earth), and "
+            "**insolation flux** (how much stellar energy the planet receives). "
+            "Each dot is colored by star class — from the hotter F-type stars (gold) "
+            "to the cooler M-type red dwarfs (dark red). "
+            "You can click and drag to rotate the chart, scroll to zoom, and hover over "
+            "any point to see the planet's name and exact values. "
+            "Look for planets that are low on the insolation flux axis and close to Earth's "
+            "radius — those are the most promising habitable candidates."
+        )
